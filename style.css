@@ -1,0 +1,111 @@
+:root {
+  --background: #0d1321;
+  --panel: #13263d;
+  --button: #1f4173;
+  --button-hover: #2d5a9b;
+  --accent: #f9a825;
+  --text: #f4f7fb;
+  --secondary: #8697b0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: linear-gradient(160deg, #0f172a 0%, #0d1321 100%);
+  color: var(--text);
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+}
+
+.calculator-shell {
+  width: min(420px, 100%);
+}
+
+.calculator {
+  background: var(--panel);
+  border-radius: 1.5rem;
+  padding: 1.25rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+.display {
+  min-height: 5rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+  word-break: break-all;
+  text-align: right;
+  color: var(--text);
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(70px, 1fr));
+  gap: 0.9rem;
+}
+
+.button {
+  border: none;
+  border-radius: 1rem;
+  padding: 1rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--button);
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.button:hover,
+.button:focus {
+  transform: translateY(-1px);
+  background: var(--button-hover);
+}
+
+.button-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--secondary);
+}
+
+.button-secondary:hover,
+.button-secondary:focus {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.button-equal {
+  background: var(--accent);
+  color: #08101c;
+  grid-row: span 2;
+}
+
+.button-equal:hover,
+.button-equal:focus {
+  background: #e89d23;
+}
+
+.button-zero {
+  grid-column: span 2;
+}
+
+@media (max-width: 420px) {
+  .button-grid {
+    grid-template-columns: repeat(4, minmax(60px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .button {
+    padding: 0.85rem;
+    font-size: 1.1rem;
+  }
+}
